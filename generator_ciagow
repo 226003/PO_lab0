@@ -1,0 +1,53 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+long long unsigned int F(int N); // fibonacci
+float H(int N); // harmoniczny-odwrot.liczb naturalnych
+
+int main(int argc, char *argv[])
+{
+	int N;
+	if (argc >= 2)
+  {
+    N = atoi(argv[1]);
+  }
+  if(*argv[2]=='f')
+  {
+  	cout << "F("<<N<<")=" << F(N);
+  }
+  if(*argv[2]=='h')
+  {
+  	cout << "H("<<N<<")=" << H(N);
+  }
+  
+}
+
+long long unsigned int F(int N)
+{
+    long long unsigned int *f;
+	f = new long long unsigned int[N];
+	if(N==1)
+		return 0;
+	if(N==2)
+		return 1;
+	if(N>=2){
+		f[0]=0;
+		f[1]=1;
+	for (int i = 2; i < N; i++ )
+	{
+		f[i]=f[i-2]+f[i-1];	
+	}
+	
+	return f[N-1];
+	delete [] f;
+	
+	
+}}
+float H(int N)
+{
+		
+	return 1.0/N;
+} 
+
